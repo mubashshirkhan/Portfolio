@@ -1,22 +1,45 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { profile } from "../data/profile";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.mubashshir.me";
+const siteTitle = `${profile.name} — ${profile.title}`;
+const siteDescription = `${profile.title} in ${profile.location}. ${profile.tagline}`;
 
 export const metadata: Metadata = {
-  title: "Mubashshir Khan — Java Backend Developer",
-  description: "Java Backend Developer focused on scalable, secure and high-performance backend systems with Java and Spring Boot.",
-  ...(siteUrl ? { metadataBase: new URL(siteUrl) } : {}),
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: `%s | ${profile.name}`,
+  },
+  description: siteDescription,
+  keywords: [
+    "Mubashshir Khan",
+    "Java Backend Developer",
+    "Spring Boot Developer",
+    "backend developer in Hyderabad",
+    "Java developer portfolio",
+    "REST API developer",
+  ],
+  authors: [{ name: profile.name, url: siteUrl }],
+  creator: profile.name,
+  publisher: profile.name,
+  alternates: { canonical: siteUrl },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "Mubashshir Khan — Java Backend Developer",
-    description: "Building scalable backend systems and modern web applications with Java & Spring Boot.",
+    title: siteTitle,
+    description: siteDescription,
     type: "website",
-    ...(siteUrl ? { url: siteUrl } : {}),
+    url: siteUrl,
+    siteName: `${profile.name} Portfolio`,
+    locale: "en_IN",
+    images: [{ url: "/logo/iamk-reference.png", alt: `${profile.name} portfolio logo` }],
   },
   twitter: {
     card: "summary",
-    title: "Mubashshir Khan — Java Backend Developer",
-    description: "Building scalable backend systems and modern web applications with Java & Spring Boot.",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/logo/iamk-reference.png"],
   },
 };
 

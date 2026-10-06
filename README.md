@@ -46,14 +46,14 @@ The contribution graph supports exactly 2025 and 2026, with 2026 selected initia
    ```text
    GITHUB_USERNAME=mubashshirkhan
    GITHUB_TOKEN=your-server-side-token
-   NEXT_PUBLIC_SITE_URL=https://your-domain.example
+   NEXT_PUBLIC_SITE_URL=https://www.mubashshir.me
    ```
 
 5. Deploy and test:
 
    ```text
-   https://your-vercel-domain.vercel.app/
-   https://your-vercel-domain.vercel.app/api/github/contributions?year=2026
+   https://www.mubashshir.me/
+   https://www.mubashshir.me/api/github/contributions?year=2026
    ```
 
 6. Add your custom domain in **Vercel → Project → Settings → Domains**.
